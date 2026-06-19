@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANKTHUG-PORN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #121212;
+            --accent1: #00e6c3;   /* бирюзовый */
+            --accent2: #a3b82f;   /* хаки */
+            --text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Age Gate */
+        #age-gate {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.97);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .age-content {
+            text-align: center;
+            max-width: 620px;
+            padding: 50px 40px;
+            background: #111;
+            border: 3px solid var(--accent1);
+            border-radius: 16px;
+        }
+
+        header {
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .logo span1 { color: var(--accent1); }
+        .logo span2 { color: var(--accent2); }
+
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent1);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/1920/1080') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content {
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        .hero h1 span1 { color: var(--accent1); }
+        .hero h1 span2 { color: var(--accent2); }
+
+        /* Creator's Choice */
+        .choice {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .choice h2 {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: var(--accent1);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 230, 195, 0.25);
+        }
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card h3 {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        /* Лучшее порно */
+        .best-section {
+            padding: 80px 20px;
+            background: #0f0f0f;
+        }
+        .best-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.6rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hamburger { display: block; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Age Gate -->
+    <div id="age-gate">
+        <div class="age-content">
+            <h1 style="font-size: 42px; margin-bottom: 20px;">RANKTHUG-PORN</h1>
+            <h2>18+ ТОЛЬКО ДЛЯ ВЗРОСЛЫХ</h2>
+            <p style="margin: 25px 0; font-size: 1.1rem;">Сайт содержит материалы для взрослых.<br>Вам должно быть 18 лет или больше.</p>
+            <button onclick="enterSite()" style="padding: 18px 60px; font-size: 1.4rem; background: linear-gradient(to right, var(--accent1), var(--accent2)); color: black; border: none; border-radius: 12px; cursor: pointer; font-weight: bold;">
+                Мне 18+ — ВОЙТИ
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                RANK<span class="span1">THUG</span>-<span class="span2">PORN</span>
+            </div>
+            <nav>
+                <a href="#choice">Выбор создателя</a>
+                <a href="#best">Лучшее порно</a>
+            </nav>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                RANK<span class="span1">THUG</span>-<span class="span2">PORN</span>
+            </h1>
+            <p style="font-size: 1.6rem; margin-top: 20px;">Самое горячее и качественное порно</p>
+        </div>
+    </section>
+
+    <!-- Выбор создателя -->
+    <section id="choice" class="choice">
+        <h2>ВЫБОР СОЗДАТЕЛЯ</h2>
+        <div class="cards">
+            <!-- Lesbian -->
+            <div class="card" onclick="window.open('https://www.pornhub.com/categories/lesbian', '_blank')">
+                <img src="https://ei.phncdn.com/videos/202107/03/390621951/original/(m=eaAaGwObaaaa)(mh=jhRXIFMLZUfsA7E6)10.jpg" alt="Lesbian">
+                <h3>Лесбийское порно</h3>
+            </div>
+            
+            <!-- Gay -->
+            <div class="card" onclick="window.open('https://www.pornhub.com/gay', '_blank')">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/024/690/044/small/passionate-gay-couple-making-out-with-lgbtq-flag-in-the-background-young-gay-couple-bonding-fondly-indoors-photo.jpg" alt="Gay">
+                <h3>Гей порно</h3>
+            </div>
+            
+            <!-- MILF -->
+            <div class="card" onclick="window.open('https://www.pornhub.com/categories/milf', '_blank')">
+                <img src="https://pics1003.ai-porn.ai/media/gallery/photo/web/10/06/14/14/19/05/www.ai-porn.ai-2309243.jpg" alt="MILF">
+                <h3>MILF порно</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Лучшее порно -->
+    <section id="best" class="best-section">
+        <h2>ЛУЧШЕЕ ПОРНО</h2>
+        <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="card" onclick="window.open('https://www.pornhub.com/video?o=tr', '_blank')">
+                <img src="https://i.cdn01.ru/files/users/images/d4/f7/d4f7e5c3f3ce41c1866f873f184022b3.jpg" alt="Trending">
+                <h3>Тренды</h3>
+            </div>
+            <div class="card" onclick="window.open('https://www.pornhub.com/categories', '_blank')">
+                <img src="https://i.ytimg.com/vi/I30EFSdeSHw/maxresdefault.jpg" alt="Categories">
+                <h3>Все категории</h3>
+            </div>
+            <div class="card" onclick="window.open('https://www.pornhub.com/top', '_blank')">
+                <img src="https://caseguru.ru/upload/img/blog/ftttdlbsm6l2cdgjwjoz.jpg" alt="Top">
+                <h3>Топ просмотров</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 RANKTHUG-PORN • Только для лиц 18+</p>
+        <p>Все ссылки ведут на внешние ресурсы (Pornhub)</p>
+        <p>Осуждаю</p>
+        <p>molodoyrank STUDIOS</p>
+
+    </footer>
+
+    <script>
+        // Age Gate
+        function enterSite() {
+            document.getElementById('age-gate').style.display = 'none';
+        }
+
+        // Простое мобильное меню (можно расширить)
+        document.getElementById('hamburger').addEventListener('click', () => {
+            alert('Мобильное меню открыто (можно доработать)');
+        });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
